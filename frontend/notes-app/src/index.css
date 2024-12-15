@@ -1,0 +1,42 @@
+/* Google Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Apply font to entire page */
+  html {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  body {
+    background-color: #fdfeff; /* Very light off-white background */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    color: #111111; /* Set default text color to almost black */
+    line-height: 1.5;
+  }
+}
+
+@layer components {
+  /* Input Box Style */
+  .input-box {
+    @apply w-full text-sm bg-transparent border-[1.5px] border-slate-300 px-5 py-3 rounded mb-4 outline-none;
+  }
+
+  /* Primary Button Style */
+  .btn-primary {
+    @apply w-full text-sm bg-black text-white p-2 rounded my-1 hover:bg-gray-800 transition duration-200 ease-in-out;
+  }
+
+  /* Icon Button Style */
+  .icon-btn {
+    @apply text-xl text-slate-300 cursor-pointer hover:text-black transition duration-200;
+  }
+
+  /* Input Label Style */
+  .input-label {
+    @apply text-xs text-slate-400;
+  }
+}
