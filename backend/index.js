@@ -34,9 +34,7 @@ app.post("/create-account", async (req, res) => {
     const { fullName, email, password } = req.body;
 
     if (!fullName) {
-        return res
-            .status(400)
-            .json({ error: true, message: "Full Name is required" });
+        return res.status(400).json({ error: true, message: "Full Name is required" });
     }
 
     if (!email) {
@@ -44,9 +42,7 @@ app.post("/create-account", async (req, res) => {
     }
 
     if (!password) {
-        return res
-            .status(400)
-            .json({ error: true, message: "Password is required" });
+        return res.status(400).json({ error: true, message: "Password is required" });
     }
 
     const isUser = await User.findOne({ email: email });
@@ -78,6 +74,7 @@ app.post("/create-account", async (req, res) => {
     });
 });
 
+// Login
 app.post("/login", async (req, res) => {
     const { email, password } = req.body;
 
@@ -146,9 +143,7 @@ app.post("/add-note", authenticateToken, async (req, res) => {
     }
 
     if (!content) {
-        return res
-            .status(400)
-            .json({ error: true, message: "Content is required" });
+        return res.status(400).json({ error: true, message: "Content is required" });
     }
 
     try {
@@ -181,9 +176,7 @@ app.put("/edit-note/:noteId", authenticateToken, async (req, res) => {
     const { user } = req.user;
 
     if (!title && !content && !tags) {
-        return res
-            .status(400)
-            .json({ error: true, message: "No changes provided" });
+        return res.status(400).json({ error: true, message: "No changes provided" });
     }
 
     try {
@@ -217,7 +210,7 @@ app.get("/get-all-notes/", authenticateToken, async (req, res) => {
     const { user } = req.user;
 
     try {
-        const notes = await Note.find({ userId: user._id }).sort({ createdOn: -1 });  // Sort by created date, not pin status
+        const notes = await Note.find({ userId: user._id }).sort({ createdOn: -1 });
 
         return res.json({
             error: false,
@@ -264,9 +257,7 @@ app.get("/search-notes/", authenticateToken, async (req, res) => {
     const { query } = req.query;
 
     if (!query) {
-        return res
-            .status(400)
-            .json({ error: true, message: "Search query is required" });
+        return res.status(400).json({ error: true, message: "Search query is required" });
     }
 
     try {

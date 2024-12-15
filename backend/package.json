@@ -1,7 +1,7 @@
 {
   "name": "notes-app-backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "Backend for Notes App",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -17,5 +17,8 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.9.0",
     "nodemon": "^3.1.9"
+  },
+  "engines": {
+    "node": ">=16.0.0"
   }
 }
